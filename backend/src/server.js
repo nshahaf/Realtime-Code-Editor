@@ -5,9 +5,12 @@ import { dirname, join } from 'node:path'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import corsOptions from './util/cors.js'
+
 import { Server } from 'socket.io'
-import { connectDatabase } from './lib/db.js'
+import setupSocketConnection from './lib/socket/socket.js'
+
 import chalk from 'chalk'
+import { connectDatabase } from './lib/db.js'
 
 dotenv.config() // load environment variables from a .env file into process.env
 const __filename = fileURLToPath(import.meta.url) // path to server.js file
@@ -26,6 +29,7 @@ if (process.env.NODE_ENV === 'production') {
 
 const server = createServer(app)
 const io = new Server(server, { cors: corsOptions })
+setupSocketConnection(io)
 
 app.get('/', (req, res) => {
     res.status(200).send('<h1>Hello world</h1>')
