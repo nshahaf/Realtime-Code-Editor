@@ -5,7 +5,7 @@ import { dirname, join } from 'node:path'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import corsOptions from './util/cors.js'
-
+import codeBlocksRoutes from './api/codeBlock/codeBlock.route.js'
 import { Server } from 'socket.io'
 import setupSocketConnection from './lib/socket/socket.js'
 
@@ -31,22 +31,19 @@ const server = createServer(app)
 const io = new Server(server, { cors: corsOptions })
 setupSocketConnection(io)
 
+
 app.get('/', (req, res) => {
     res.status(200).send('<h1>Hello world</h1>')
 })
 
-app.get('/ping', (req, res) => {
-    res.status(200).json({ message: 'pong' })
-})
 
-app.post('/test', (req, res) => {
-    const body = req.body
-    res.status(201).json(body)
-})
+
+app.use('/api/codeblocks', codeBlocksRoutes)
+
 
 const PORT = process.env.PORT || 3000
 
 server.listen(PORT, () => {
     console.log(chalk.green(`Server is running on port ${PORT}`))
-    // connectDatabase()
+    connectDatabase()
 })

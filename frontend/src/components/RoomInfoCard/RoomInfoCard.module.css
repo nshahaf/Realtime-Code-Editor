@@ -1,0 +1,41 @@
+.card {
+    width: 250px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: var(--card-shadow);
+    align-self: center;
+}
+
+.icon {
+    svg {
+        stroke: var(--clr-student);
+    }
+}
+
+.counter {
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.role {
+    text-transform: capitalize;
+    padding: 4px 10px;
+    border-radius: 10px;
+    font-weight: 500;
+
+    &.student {
+        color: var(--clr-student);
+        background-color: var(--clr-student-light);
+    }
+
+    &.mentor {
+        color: var(--clr-mentor);
+        background-color: var(--clr-mentor-light);
+    }
+}

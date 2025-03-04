@@ -1,0 +1,12 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+@media (min-width: 1220px) {
+    .list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}

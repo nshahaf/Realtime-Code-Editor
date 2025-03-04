@@ -1,0 +1,27 @@
+:root {
+    /* Layout veriables */
+    --header-height: 50px;
+
+    /* Color variables */
+    --clr-heading: black;
+    --clr-text: #868e9c;
+    --clr-bg: #f9fbff;
+    --clr-link: #3b82f6;
+
+    --clr-easy: #1ea651;
+    --clr-easy-light: #f0fdf4;
+    --clr-medium: #e29d47;
+    --clr-medium-light: #fffbeb;
+    --clr-hard: #de3131;
+    --clr-hard-light: #fef2f2;
+    --clr-student: #3a72ed;
+    --clr-student-light: #eff6ff;
+    --clr-mentor: #ab61ef;
+    --clr-mentor-light: #faf5ff;
+    --clr-note: #d16b27;
+    --clr-note-light: var(--clr-medium-light);
+
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --card-border: 1px solid rgba(166, 166, 166, 0.1);
+    --card-radius: 10px;
+}

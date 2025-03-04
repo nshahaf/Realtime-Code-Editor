@@ -3,8 +3,10 @@ import mongoose from "mongoose"
 const codeBlockSchema = new mongoose.Schema(
     {
         title: { type: String, required: true },
-        codeTemplate: { type: String, required: true },
+        description: { type: String, required: true },
+        initialCode: { type: String, required: true },
         solution: { type: String, required: true },
+        difficulty: { type: String, required: true },
     },
     { timestamps: true }
 )
