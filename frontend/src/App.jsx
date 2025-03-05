@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 import CodeBlockPage from './pages/CodeBlockPage'
 import LobbyPage from './pages/LobbyPage'
+
 export default function App() {
 
   return (
@@ -15,3 +16,4 @@ export default function App() {
     </div>
   )
 }
+

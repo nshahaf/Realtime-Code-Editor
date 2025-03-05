@@ -1,17 +1,37 @@
 import styles from './CodeBlockPage.module.css'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { codeBlocks } from '../../../../backend/data.js'
 import RoomInfoCard from '@/components/RoomInfoCard'
 import CodeEditor from '../../components/CodeEditor'
+import { axiosInstance as axios } from '../../services/axios'
+import { useSocket } from '../../socket/useSocket'
+
+
 export default function CodeBlockPage() {
+    const { emitEvent, role } = useSocket()
     const params = useParams()
-    const [codeBlock, setCodeBlock] = useState(null)
+    const [codeBlock, setCodeBlocks] = useState(null)
 
     useEffect(() => {
-        setCodeBlock(codeBlocks.find(codeBlock => codeBlock._id === Number(params.id)))
+        emitEvent('client:join-room', params.id)
+        async function fetchCodeBlock() {
+            try {
+                const response = await axios(`/codeblocks/${params.id}`)
+                setCodeBlocks(response.data)
+            } catch (error) {
+                console.error('Error fetching code block:', error)
+            }
+        }
+
+        fetchCodeBlock()
+
+        return () => {
+            emitEvent('client:leave-room', params.id)
+        }
 
     }, [params.id])
+
+
 
     return (
         <div className={styles.page}>
@@ -24,11 +44,13 @@ export default function CodeBlockPage() {
                         </div>
                         <RoomInfoCard />
                     </div>
-                    <CodeEditor />
-                    <div className={styles.note}>
-                        <span>Note:&nbsp;</span>As a mentor, you are in read-only mode. You can see the code but cannot modify it.
-                        If you leave this page, all students will be redirected to the lobby.
-                    </div>
+                    <CodeEditor codeBlock={codeBlock} />
+                    {role === 'mentor' &&
+                        <div className={styles.note}>
+                            <span>Note:&nbsp;</span>As a mentor, you are in read-only mode. You can see the code but cannot modify it.
+                            If you leave this page, all students will be redirected to the lobby.
+                        </div>
+                    }
                 </>
             ) : (
                 <p>Code block not found</p>
@@ -36,3 +58,4 @@ export default function CodeBlockPage() {
         </div>
     )
 }
+

@@ -8,13 +8,6 @@ const blockService = {
     updateCodeBlock,
 }
 
-//Create
-export async function createCodeBlock(codeBlock) {
-    const response = await axios.post(`/codeblocks`, codeBlock)
-    const savedCodeBlock = response.data
-    return savedCodeBlock
-}
-
 //Read
 export async function getCodeBlocks() {
     const response = await axios.get('/codeblocks')
@@ -26,6 +19,13 @@ export async function getCodeBlock(id) {
     const response = await axios.get(`/codeblocks/${id}`)
     const codeBlock = response.data
     return codeBlock
+}
+
+//Create
+export async function createCodeBlock(codeBlock) {
+    const response = await axios.post(`/codeblocks`, codeBlock)
+    const savedCodeBlock = response.data
+    return savedCodeBlock
 }
 
 //Update

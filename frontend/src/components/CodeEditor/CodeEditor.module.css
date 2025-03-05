@@ -8,6 +8,12 @@
 
 }
 
+.pre {
+    height: 100%;
+}
+
+.textArea {}
+
 .code {
     /* width: ; */
     /* font-size: 16px; */

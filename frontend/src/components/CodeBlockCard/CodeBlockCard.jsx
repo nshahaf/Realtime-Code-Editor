@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 export default function CodeBlockCard({ codeBlock }) {
     const navigate = useNavigate()
+
     const difficulty = codeBlock.difficulty.toLowerCase()
 
 
