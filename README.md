@@ -50,8 +50,12 @@
 #### Socket Events:
 - **connection:** open socket connection between server and client.
 - **Join/Leave Room:** Track users entering/leaving a code block page.
-- **code changes** Emit code changes to other connected clients in the same room.
-- **code reset** to reset after succesfullt compliting the task.
-- **code solved** to notify when the solution is valid.
-- **Mentor Disconnect:** Notify students and redirect back to the lobby. (unsave code changes)
-- **Discconection** when socket disconnect
+- **code changes:** Emit code changes to other connected clients in the same room.
+- **code reset:** Reset after successfully completing the task.
+- **code solved:** Notify when the solution is valid.
+- **Mentor Disconnect:** Notify students and redirect back to the lobby (unsaved code changes).
+- **Disconnection:** When socket disconnects.
+
+## Deployment:
+Render: [Realtime Code Editor - Render](https://realtime-code-editor-5klk.onrender.com)
+Railway: [Realtime Code Editor - Railway](https://realtime-code-editor-production-1779.up.railway.app/)
