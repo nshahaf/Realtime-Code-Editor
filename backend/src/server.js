@@ -11,7 +11,6 @@ import { Server } from 'socket.io'
 import socketHandler from './lib/socket.js'
 import { connectDatabase } from './lib/db.js'
 
-// import './lib/vm.js'
 
 //*APP SETUP
 dotenv.config() // load environment variables from a .env file into process.env
