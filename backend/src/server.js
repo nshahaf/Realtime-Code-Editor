@@ -38,7 +38,7 @@ app.use('/api/codeblocks', codeBlocksRoutes)
 //*SOCKETS SETUP
 const server = createServer(app)
 const io = new Server(server, {
-    cors: corsOptions,
+    cors: process.env.NODE_ENV === 'production' ? {} : corsOptions,
     connectionStateRecovery: {
         maxDisconnectionDuration: 1 * 60 * 1000, // 1 minute
         onRecovery: (socket) => {
