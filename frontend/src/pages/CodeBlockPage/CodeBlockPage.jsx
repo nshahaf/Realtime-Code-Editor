@@ -1,35 +1,26 @@
 import styles from './CodeBlockPage.module.css'
 import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import RoomInfoCard from '@/components/RoomInfoCard'
 import CodeEditor from '../../components/CodeEditor'
-import { axiosInstance as axios } from '../../services/axios'
 import { useSocket } from '../../socket/useSocket'
+import { useFetchCodeBlock } from '../../hooks/useFetchCodeBlock'
 
 
 export default function CodeBlockPage() {
-    const { emitEvent, role } = useSocket()
+    const { role, socket } = useSocket()
     const params = useParams()
-    const [codeBlock, setCodeBlocks] = useState(null)
+    const codeBlock = useFetchCodeBlock()
 
     useEffect(() => {
-        emitEvent('client:join-room', params.id)
-        async function fetchCodeBlock() {
-            try {
-                const response = await axios(`/codeblocks/${params.id}`)
-                setCodeBlocks(response.data)
-            } catch (error) {
-                console.error('Error fetching code block:', error)
-            }
-        }
-
-        fetchCodeBlock()
+        //send join-room event to the server on mount
+        socket.emit('client:join-room', params.id)
 
         return () => {
-            emitEvent('client:leave-room', params.id)
+            //send leave-room event to the server on unmount
+            socket.emit('client:leave-room', params.id)
         }
-
-    }, [params.id])
+    }, [params.id, socket])
 
 
 

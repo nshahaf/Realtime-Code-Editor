@@ -12,11 +12,25 @@
     height: 100%;
 }
 
-.textArea {}
+/* .textArea {} */
 
-.code {
-    /* width: ; */
-    /* font-size: 16px; */
+/* .code {} */
+
+.smileyButton {
+    width: 300px;
+    height: 200px;
+    cursor: pointer;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border: none;
+
+}
+
+.smileyImage {
+    width: 100%
 }
 
 @media (max-width: 670px) {

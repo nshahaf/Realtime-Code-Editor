@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from 'react'
 import { socket } from './socketClient'
 import { useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
+
 // Create the SocketContext
 const SocketContext = createContext()
 
@@ -18,29 +19,31 @@ export const SocketProvider = ({ children }) => {
 
         socket.on('server:rooms-data', (data) => {
             setRoomsData(data.roomsData)
-            console.log('server:rooms-data:', data)
+            // console.log('server:rooms-data:', data) //for debugging
         })
 
         socket.on('server:join-room', (data) => {
             setRole(data.role)
             setRoomId(data.roomId)
             setRoomsData(data.roomsData)
-            console.log('server:join-room:', data)
+            // console.log('server:join-room:', data) //for debugging
         })
 
         socket.on('server:leave-room', (data) => {
             setRole(null)
             setRoomId(null)
             setRoomsData(data.roomsData)
-            console.log('server:leave-room:', data)
+            // console.log('server:leave-room:', data) //for debugging
         })
 
         socket.on('server:mentor-left', () => {
             toast.error('Mentor has left the room')
 
             navigate('/')
-            console.log('server:mentor-left:')
+            // console.log('server:mentor-left:') //for debugging
         })
+
+
 
         // Cleanup on unmount
         return () => {

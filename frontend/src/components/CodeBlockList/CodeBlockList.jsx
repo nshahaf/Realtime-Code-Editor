@@ -1,23 +1,10 @@
 import styles from "./CodeBlockList.module.css"
 import CodeBlockCard from "../CodeBlockCard/CodeBlockCard"
-import { useEffect, useState } from "react"
-import { axiosInstance as axios } from "../../services/axios"
+import { useFetchCodeBlocks } from "../../hooks/useFetchCodeBlocks"
 
 export default function CodeBlockList() {
-    const [codeBlocks, setCodeBlocks] = useState([])
+    const codeBlocks = useFetchCodeBlocks()
 
-    useEffect(() => {
-        async function fetchCodeBlocks() {
-            try {
-                const response = await axios(`/codeblocks`)
-                setCodeBlocks(response.data)
-            } catch (error) {
-                console.error('Error fetching code block:', error)
-            }
-        }
-
-        fetchCodeBlocks()
-    }, [])
     return (
         <ul className={styles.list}>
             {codeBlocks.map((codeBlock, index) => (

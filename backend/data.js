@@ -1,37 +1,44 @@
 export const codeBlocks = [
     {
         "title": "Reverse a String",
-        "description": "Write a function to reverse a string.",
-        "initialCode": "//Write a function to reverse a string.\n//Example: reverseString('hello') should return 'olleh'\n\nfunction reverseString(str) {\n  return ' ' // TODO: Implement the function logic\n}\n\nconsole.log(reverseString(\"hello\"));",
-        "solution": "function reverseString(str) {\n  return str.split('').reverse().join('');\n}\n\nconsole.log(reverseString(\"hello\"));",
-        "difficulty": "Easy"
-    },
-    {
-        "title": "Find the Largest Number",
-        "description": "Write a function that finds the largest number in an array.",
-        "initialCode": "//Write a function that finds the largest number in an array.\n//Example: findLargestNumber([3, 1, 4, 1, 5, 9]) should return 9\nfunction findLargestNumber(arr) {\n  return null // TODO: Implement the function logic\n}\n\nconst resault = findLargestNumber([3, 1, 4, 1, 5, 9])\nconsole.log(resault)\n",
-        "solution": "function findLargestNumber(arr) {\n  return Math.max(...arr)\n}\nconst resault = findLargestNumber([3, 1, 4, 1, 5, 9])\nconsole.log(resault)\n",
-        "difficulty": "Medium"
-    },
-    {
-        "title": "Fix the Async Bug",
-        "description": "The following function fetches data from a URL. However, there is a bug. Can you find and fix it?",
-        "initialCode": "//The following function fetches data from a URL.\n//However, there is a bug. Can you find and fix it? \nasync function fetchData(url) {\n  const response = await fetch(url);\n  const data = \n  return data // Bug: \"data\" is not defined\n}",
-        "solution": "async function fetchData(url) {\n  const response = await fetch(url);\n  const data = await response.json();\n  return data\n}",
-        "difficulty": "Hard"
-    },
-    {
-        "title": "Hello, World!",
-        "description": "Write a function that prints 'Hello, World!'.",
-        "initialCode": "//Write a function that prints 'Hello, World!'.\nfunction helloWorld() {\n  console.___(\"Hello, World!\");\n}\n\nhelloWorld()",
-        "solution": "function helloWorld() {\n  console.log(\"Hello, World!\");\n}\n\nhelloWorld()",
-        "difficulty": "Easy"
+        "description": "Write a function to reverse a given string.",
+        "initialCode": "//Example: reverseString('hello') should return 'olleh'\n\nfunction reverseString(str) {\n\n  return 'reversedString' ",
+        "testFunction": "testReverseString",
+        "difficulty": "easy"
     },
     {
         "title": "Sum of Two Numbers",
         "description": "Write a function that takes two numbers, adds them together, and prints the result.",
-        "initialCode": "//Write a function that takes two numbers, adds them together, and prints the result.\nfunction sum(a, b) {\n  return null //TODO: Implement the function logic\n}\nconsole.log(sum(3,6))",
-        "solution": "function sum(a, b) {\n  return a+b\n}\nconsole.log(sum(3,6))",
-        "difficulty": "Easy"
+        "initialCode": "//Example: sum(1,2) should return 3 \n\nfunction sum(a, b) {\n\n  return null }\n",
+        "testFunction": "testAddNumbers",
+        "difficulty": "easy"
+    },
+    {
+        "title": "Find the Largest Number",
+        "description": "Write a function that finds the largest number in an array.",
+        "initialCode": "//Example: findLargestNumber([3, 1, 4, 1, 5, 9]) should return 9\n\nfunction findLargestNumber(arr) {\n\n  return 'LargestNumber' \n}",
+        "testFunction": "testFindLatgestNumber",
+        "difficulty": "medium"
+    },
+    {
+        "title": "Calculate Factorial",
+        "description": "Write a function that calculates the factorial of a number.",
+        "initialCode": "//Example: factorial(5) should return 120\n\nfunction factorial(n) {\n\n  return null \n}",
+        "testFunction": "testFactorial",
+        "difficulty": "medium"
+    },
+    {
+        "title": "Check Palindrome",
+        "description": "Write a function that checks if a string is a palindrome.",
+        "initialCode": "//Example: isPalindrome('racecar') should return true\n\nfunction isPalindrome(str) {\n\n  return null \n}",
+        "testFunction": "testIsPalindrome",
+        "difficulty": "medium"
+    },
+    {
+        "title": "Fibonacci Number",
+        "description": "Write a function that returns the nth Fibonacci number. F(0) = 0, F(1) = 1, F(2) = 1, F(3) = 2.",
+        "initialCode": "//Example: fibonacci(5) should return 5\n\nfunction fibonacci(n) {\n  return null \n}",
+        "testFunction": "testFibonacci",
+        "difficulty": "hard"
     }
 ]
