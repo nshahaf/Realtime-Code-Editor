@@ -17,7 +17,7 @@ export const codeBlocks = [
         "title": "Find the Largest Number",
         "description": "Write a function that finds the largest number in an array.",
         "initialCode": "//Example: findLargestNumber([3, 1, 4, 1, 5, 9]) should return 9\n\nfunction findLargestNumber(arr) {\n\n  return 'LargestNumber' \n}",
-        "testFunction": "testFindLatgestNumber",
+        "testFunction": "testFindLargestNumber",
         "difficulty": "medium"
     },
     {

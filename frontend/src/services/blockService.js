@@ -1,5 +1,4 @@
 import { axiosInstance as axios } from "../lib/axios"
-
 const blockService = {
     getCodeBlocks,
     getCodeBlock,

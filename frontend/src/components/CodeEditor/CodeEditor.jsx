@@ -49,6 +49,8 @@ export default function CodeEditor({ codeBlock }) {
         setIsSolved(false)
         socket.emit('client:code-reset', { roomId })
     }
+
+
     return (
         <>
             <Editor className={styles.editor}

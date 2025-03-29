@@ -9,7 +9,7 @@ export default function App() {
     <div className='app-container'>
       <Routes>
         <Route path="/" element={<LobbyPage />} />
-        <Route path="/codeBlock/:id" element={<CodeBlockPage />} />
+        <Route path="/codeblocks/:id" element={<CodeBlockPage />} />
         <Route path="*" element={<LobbyPage />} />
       </Routes>
       <Toaster />

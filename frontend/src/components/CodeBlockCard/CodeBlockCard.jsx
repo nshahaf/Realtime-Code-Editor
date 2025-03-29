@@ -8,7 +8,7 @@ export default function CodeBlockCard({ codeBlock }) {
 
 
     function handleNavigation() {
-        navigate(`/codeBlock/${codeBlock._id}`)
+        navigate(`/codeblocks/${codeBlock._id}`)
     }
 
     return (

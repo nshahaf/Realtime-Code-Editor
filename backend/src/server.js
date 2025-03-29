@@ -16,6 +16,7 @@ import { connectDatabase } from './lib/db.js'
 dotenv.config() // load environment variables from a .env file into process.env
 const __filename = fileURLToPath(import.meta.url) // path to server.js file
 const __dirname = dirname(__filename) // path to src folder backend/src
+const buildPath = join(__dirname, '../public')
 
 const app = express()
 app.use(express.json())
@@ -23,16 +24,22 @@ app.use(express.json())
 
 // Set up CORS for Express
 if (process.env.NODE_ENV === 'production') {
-    const buildPath = join(__dirname, '../public')
     app.use(express.static(buildPath))
+
 } else {
     app.use(cors(corsOptions))
 }
 
 
+
 //CODE BLOCKS ROUTES
 app.use('/api/codeblocks', codeBlocksRoutes)
 
+// Serve index.html for all unknown routes
+app.get('*', (req, res) => {
+    // console.log(chalk.blue(req.url))
+    res.sendFile(join(buildPath, 'index.html'))
+})
 
 //*SOCKETS SETUP
 const server = createServer(app)
